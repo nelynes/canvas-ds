@@ -208,12 +208,12 @@ based on 640x480
 			<fontSize>${metaDatafontSize}</fontSize>
 		</text>
 		<text name="md_gametime_custom" extra="true">
-			 <pos>0.55 0.919</pos>
+			 <pos>0.428 0.907</pos>
             <size>0.065 ${metaDatafontSize}</size>
 			<fontSize>${metaDatafontSize}</fontSize>
 		</text>
 		<image name="playtime-logo">
-			<pos>0.542 0.9185</pos>
+			<pos>0.423 0.907</pos>
 	        <size>0 0.025</size>
 		</image>
 	</view>
