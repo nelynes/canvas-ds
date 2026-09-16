@@ -25,20 +25,24 @@ output DSI-2 allow_tearing yes
 output DSI-2 max_render_time off
 
 # Window rules
-for_window [title=".*(Secondary|\[w2\]|Sub|Bottom|Screen 2|GamePad).*"] move window to output DSI-1, output DSI-1 power on
+for_window [title=".*(Secondary|\[w2\]|Sub|Bottom|Screen 2|GamePad).*"] move window to output DSI-1
 for_window [title="RetroArch.*"] exec /usr/bin/vertical-check
+for_window [title=".*(Secondary|\[w2\]|Sub|Bottom|Screen 2|GamePad).*"] output DSI-1 power on
+
+# Lowerdeck rules
 for_window [app_id="lowerdeck"] floating enable, fullscreen enable, move window to output DSI-1
 no_focus [app_id="lowerdeck"]
 
+# Drastic Specific rules
 for_window [app_id="drastic"] input "1046:911:Goodix_Capacitive_TouchScreen" map_to_output DSI-2
 
 # EmulationStation layout rules
 for_window [app_id="emulationstation"] floating enable, fullscreen disable, move absolute position 0 0
+for_window [app_id="emulationstation"] focus
 
 # Input and Seat configuration (static mappings to prevent input IPC deadlocks)
 seat seat0 attach "0:0:wlr_virtual_keyboard_v1"
 seat seat1 attach "1046:911:Goodix_Capacitive_TouchScreen"
-seat seat1 fallback yes
 EOF
 
 swaymsg reload
